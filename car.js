@@ -130,7 +130,7 @@ class Car {
         this.y -= Math.cos(this.angle) * this.speed;
     }
 
-    draw(ctx) {
+    draw(ctx, drawSensors = false) {
         if (this.controlType == "DUMMY") {
             ctx.fillStyle = "red";
         }
@@ -149,7 +149,7 @@ class Car {
         }
         ctx.fill();
 
-        if (this.sensor) {
+        if (this.sensor && drawSensors) {
             this.sensor.draw(ctx);
         }
     }
